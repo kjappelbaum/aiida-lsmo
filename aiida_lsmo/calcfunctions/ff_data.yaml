@@ -239,7 +239,7 @@ framework:
     atom_types:
       Al_: [lennard-jones, 22.0, 2.30] # TraPPE-zeo (extrapolated from Si)
       Si_: [lennard-jones, 22.0, 2.30] # TraPPE-zeo
-      O_: [lennard-jones, 53.0, 3.30]  # TraPPE-zeo
+      O_: [lennard-jones, 53.0, 3.30] # TraPPE-zeo
       Ca_: [lennard-jones, 25.16356, 3.09320] # DREIDING
       Na_: [lennard-jones, 15.0981, 2.6576] # UFF
       Mg_: [lennard-jones, 55.8631, 2.6914] # UFF
@@ -270,15 +270,17 @@ H2:
     atom_types:
       H_h2:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.0, +0.468, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.0, +0.468, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       M_h2:
         force_field: [feynman-hibbs-lennard-jones, 36.7, 2.958, 1.0] # epsilon, sigma, reduced mass H2-H2 (amu
         force_field_mix: [lennard-jones, 36.7, 2.958]
-        pseudo_atom: [no, M, M, 0, 0.0, -0.936, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0.0, -0.936, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [H_h2, 0, 0, -0.3705]
-    - [M_h2, 0, 0, 0]
-    - [H_h2, 0, 0, +0.3705]
+      - [H_h2, 0, 0, -0.3705]
+      - [M_h2, 0, 0, 0]
+      - [H_h2, 0, 0, +0.3705]
   Buch:
     description: >-
       Single bead model used by Thornton2017 (10.1021/acs.chemmater.6b04933) and parametrized in Buch1994 (10.1063/1.466854).
@@ -290,7 +292,7 @@ H2:
         force_field_mix: [lennard-jones, 34.2, 2.96]
         pseudo_atom: [yes, H, H, 0, 2.0, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [H2_gas, 0, 0, 0]
+      - [H2_gas, 0, 0, 0]
   Buch-nonFH:
     description: |
       Buch force field without Feynman-Hibbs rules, for a simpler use with mixtures. Use only for near ambient temperatures or above.
@@ -299,7 +301,7 @@ H2:
         force_field: [lennard-jones, 34.2, 2.96]
         pseudo_atom: [yes, H, H, 0, 2.0, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [H2_gas, 0, 0, 0]
+      - [H2_gas, 0, 0, 0]
   P-FH:
     description: >-
       Pseudo-Feynman-Hibbs single bead potential developed in Fischer2009 (10.1002/cphc.200900459), to improve the
@@ -311,7 +313,7 @@ H2:
         force_field: [lennard-jones, 30.104, 3.064] # reported as: epsilon = 0.2503 kj/mol, rmin = 3.4394 A (=2^(1/6)*sigma)
         pseudo_atom: [yes, H, H, 0, 2.0, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [H2_gas, 0, 0, 0]
+      - [H2_gas, 0, 0, 0]
 
 H2S:
   critical_constants:
@@ -323,36 +325,40 @@ H2S:
     atom_types:
       S_h2s:
         force_field: [lennard-jones, 122, 3.60]
-        pseudo_atom: [yes, S, S, 0, 32.066, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, S, S, 0, 32.066, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       H_h2s:
         force_field: [lennard-jones, 50, 2.5]
-        pseudo_atom: [yes, H, H, 0, 1.0, 0.21, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.0, 0.21, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       M_h2s:
         force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, 0.21, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [S_h2s, 0, 0, 0]
-    - [M_h2s, 0, 0, 0.3]
-    - [H_h2s, 0, +0.964, 0.931]   # 0, 1.34 * sin(92/2), 1.34 * cos(92/2)
-    - [H_h2s, 0, -0.964, 0.931]
+      - [S_h2s, 0, 0, 0]
+      - [M_h2s, 0, 0, 0.3]
+      - [H_h2s, 0, +0.964, 0.931] # 0, 1.34 * sin(92/2), 1.34 * cos(92/2)
+      - [H_h2s, 0, -0.964, 0.931]
   ESP-MM:
     description: DFT optimized geometry and parameters fitted to reproduce both VLE and DFT-ESP, improving binding geometries but not necessarily the binding energies too. Done by the group of Li-Chiang Lin in 2019 (10.1021/acs.jctc.9b00653).
     atom_types:
       S_h2s:
         force_field: [lennard-jones, 233.7, 3.48]
-        pseudo_atom: [yes, S, S, 0, 32.066, -1.152, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, S, S, 0, 32.066, -1.152, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       H_h2s:
         force_field: [lennard-jones, 10.3, 2.76]
-        pseudo_atom: [yes, H, H, 0, 1.0, 0.268, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.0, 0.268, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       M_h2s:
         force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, 0.308, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [S_h2s, 0, 0, 0]
-    - [H_h2s, 0, +0.966, 0.940]   # 0, 1.348 * sin(91.61/2), 1.348 * cos(91.61/2)
-    - [H_h2s, 0, -0.966, 0.940]
-    - [M_h2s, +0.718, 0, -0.502]   # 0.876 * sin(110.0/2), 0, -0.876 * cos(110.0/2)
-    - [M_h2s, -0.718, 0, -0.502]
+      - [S_h2s, 0, 0, 0]
+      - [H_h2s, 0, +0.966, 0.940] # 0, 1.348 * sin(91.61/2), 1.348 * cos(91.61/2)
+      - [H_h2s, 0, -0.966, 0.940]
+      - [M_h2s, +0.718, 0, -0.502] # 0.876 * sin(110.0/2), 0, -0.876 * cos(110.0/2)
+      - [M_h2s, -0.718, 0, -0.502]
 
 H2O:
   critical_constants:
@@ -364,267 +370,312 @@ H2O:
     atom_types:
       Ow:
         force_field: [lennard-jones, 78.177, 3.166]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.820000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.820000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.410000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.410000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.81649, 0.57736]     # x=0, y=1.000*sin(109.470/2), z=1.000*cos(109.470/2)
-    - [Hw, 0, -0.81649, 0.57736]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.81649, 0.57736] # x=0, y=1.000*sin(109.470/2), z=1.000*cos(109.470/2)
+      - [Hw, 0, -0.81649, 0.57736]
   SPC/E:
     description: SPC/E water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 78.177, 3.166]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.847600, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.847600, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.423800, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.423800, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.81649, 0.57736]     # x=0, y=1.000*sin(109.470/2), z=1.000*cos(109.470/2)
-    - [Hw, 0, -0.81649, 0.57736]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.81649, 0.57736] # x=0, y=1.000*sin(109.470/2), z=1.000*cos(109.470/2)
+      - [Hw, 0, -0.81649, 0.57736]
   TIP3P:
     description: TIP3P water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 76.542, 3.151]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.834000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.834000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.417000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.417000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
   TIP4P:
     description: TIP4P water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 77.937, 3.154]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.520000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.520000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -1.040000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -1.040000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, 0, 0, 0.150]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, 0, 0, 0.150]
   TIP4P-Ew:
     description: TIP4P-Ew water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 81.899, 3.164]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.524220, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.524220, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -1.048440, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -1.048440, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, 0, 0, 0.125]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, 0, 0, 0.125]
   TIP4P/Ice:
     description: TIP4P/Ice water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 106.105, 3.167]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.589700, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.589700, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -1.179400, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -1.179400, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, 0, 0, 0.158]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, 0, 0, 0.158]
   TIP4P/2005:
     description: TIP4P/2005 water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 93.200, 3.159]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.556400, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.556400, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -1.112800, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -1.112800, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, 0, 0, 0.155]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, 0, 0, 0.155]
   TIP4P/2005f:
     description: TIP4P/2005f water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 93.200, 3.164]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.556400, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.556400, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -1.112800, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -1.112800, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, 0, 0, 0.155]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, 0, 0, 0.155]
   TIP4P/epsi:
     description: TIP4P/epsi water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 92.995, 3.165]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.527000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.527000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -1.054000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -1.054000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, 0, 0, 0.105]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, 0, 0, 0.105]
   OPC:
     description: OPC water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 107.079, 3.167]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.679100, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.679100, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -1.358200, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -1.358200, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.68558, 0.53950]     # x=0, y=0.872*sin(103.600/2), z=0.872*cos(103.600/2)
-    - [Hw, 0, -0.68558, 0.53950]
-    - [Mw, 0, 0, 0.159]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.68558, 0.53950] # x=0, y=0.872*sin(103.600/2), z=0.872*cos(103.600/2)
+      - [Hw, 0, -0.68558, 0.53950]
+      - [Mw, 0, 0, 0.159]
   OPC3:
     description: OPC3 water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 82.229, 3.174]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.895200, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.895200, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.447600, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.447600, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.79926, 0.56518]     # x=0, y=0.979*sin(109.470/2), z=0.979*cos(109.470/2)
-    - [Hw, 0, -0.79926, 0.56518]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.79926, 0.56518] # x=0, y=0.979*sin(109.470/2), z=0.979*cos(109.470/2)
+      - [Hw, 0, -0.79926, 0.56518]
   ST2:
     description: ST2 water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 38.119, 3.100]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.243570, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.243570, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -0.243570, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -0.243570, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.81649, 0.57736]     # x=0, y=1.000*sin(109.470/2), z=1.000*cos(109.470/2)
-    - [Hw, 0, -0.81649, 0.57736]
-    - [Mw, +0.65319, 0, -0.46189]     # x=0.800*sin(109.470/2), y=0, z=-0.800*cos(109.470/2)
-    - [Mw, -0.46189, 0, -0.65319]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.81649, 0.57736] # x=0, y=1.000*sin(109.470/2), z=1.000*cos(109.470/2)
+      - [Hw, 0, -0.81649, 0.57736]
+      - [Mw, +0.65319, 0, -0.46189] # x=0.800*sin(109.470/2), y=0, z=-0.800*cos(109.470/2)
+      - [Mw, -0.46189, 0, -0.65319]
   TIP5P:
     description: TIP5P water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 80.511, 3.120]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, +0.57154, 0, -0.40415]     # x=0.700*sin(109.470/2), y=0, z=-0.700*cos(109.470/2)
-    - [Mw, -0.40415, 0, -0.57154]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, +0.57154, 0, -0.40415] # x=0.700*sin(109.470/2), y=0, z=-0.700*cos(109.470/2)
+      - [Mw, -0.40415, 0, -0.57154]
   TIP5P-Ew:
     description: TIP5P-Ew water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 89.579, 3.097]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.000000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -0.241000, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, +0.57154, 0, -0.40415]     # x=0.700*sin(109.470/2), y=0, z=-0.700*cos(109.470/2)
-    - [Mw, -0.40415, 0, -0.57154]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, +0.57154, 0, -0.40415] # x=0.700*sin(109.470/2), y=0, z=-0.700*cos(109.470/2)
+      - [Mw, -0.40415, 0, -0.57154]
   TIP5P-2018:
     description: TIP5P-2018 water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 95.016, 3.145]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.641114, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.641114, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.394137, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.394137, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -0.073580, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -0.073580, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, +0.57154, 0, -0.40415]     # x=0.700*sin(109.470/2), y=0, z=-0.700*cos(109.470/2)
-    - [Mw, -0.40415, 0, -0.57154]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, +0.57154, 0, -0.40415] # x=0.700*sin(109.470/2), y=0, z=-0.700*cos(109.470/2)
+      - [Mw, -0.40415, 0, -0.57154]
   TIP7P:
     description: TIP7P water model from http://www1.lsbu.ac.uk/water/water_models.html
     atom_types:
       Ow:
         force_field: [lennard-jones, 75.580, 3.156]
-        pseudo_atom: [yes, O, O, 0, 15.999, 0.110940, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, 0.110940, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Hw:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.007, 0.580140, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.007, 0.580140, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       Mw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -0.177240, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -0.177240, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       MMw:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -0.458370, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -0.458370, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [Ow, 0, 0, 0]
-    - [Hw, 0, +0.75695, 0.58588]     # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
-    - [Hw, 0, -0.75695, 0.58588]
-    - [Mw, +0.33476, 0, -0.23672]     # x=0.410*sin(109.470/2), y=0, z=-0.410*cos(109.470/2)
-    - [Mw, -0.23672, 0, -0.33476]
-    - [MMw, 0, +0.37848, 0.29294]     # x=0, y=0.479*sin(104.520/2), z=0.479*cos(104.520/2)
-    - [MMw, 0, -0.37848, 0.29294]
+      - [Ow, 0, 0, 0]
+      - [Hw, 0, +0.75695, 0.58588] # x=0, y=0.957*sin(104.520/2), z=0.957*cos(104.520/2)
+      - [Hw, 0, -0.75695, 0.58588]
+      - [Mw, +0.33476, 0, -0.23672] # x=0.410*sin(109.470/2), y=0, z=-0.410*cos(109.470/2)
+      - [Mw, -0.23672, 0, -0.33476]
+      - [MMw, 0, +0.37848, 0.29294] # x=0, y=0.479*sin(104.520/2), z=0.479*cos(104.520/2)
+      - [MMw, 0, -0.37848, 0.29294]
 
 CH4:
   critical_constants:
@@ -636,9 +687,10 @@ CH4:
     atom_types:
       CH4_sp3:
         force_field: [lennard-jones, 148.0, 3.73]
-        pseudo_atom: [yes, C, C, 0, 16.04, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 16.04, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [CH4_sp3, 0, 0, 0]
+      - [CH4_sp3, 0, 0, 0]
   TraPPE-mod:
     description: >-
       Explicit hydrogen representation, to be used with separate_interatctions=True.
@@ -648,17 +700,19 @@ CH4:
     atom_types:
       C_ch4:
         force_field: [lennard-jones, 148.0, 3.73]
-        pseudo_atom: [yes, C, C, 0, 12.00, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 12.00, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       H_ch4:
         # This is a dummy atom that will be considered only for framework-molecule interactions
         force_field: dummy_separate
-        pseudo_atom: [yes, H, H, 0, 1.01, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.01, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [C_ch4, 0.00000, 0.00000, 0.00000]
-    - [H_ch4, 0.00000, -0.00000, 1.10940]
-    - [H_ch4, -1.00777, 0.28004, -0.36980]
-    - [H_ch4, 0.26136, -1.01277, -0.36980]
-    - [H_ch4, 0.74641, 0.73273, -0.36980]
+      - [C_ch4, 0.00000, 0.00000, 0.00000]
+      - [H_ch4, 0.00000, -0.00000, 1.10940]
+      - [H_ch4, -1.00777, 0.28004, -0.36980]
+      - [H_ch4, 0.26136, -1.01277, -0.36980]
+      - [H_ch4, 0.74641, 0.73273, -0.36980]
   Dubbeldam:
     description: >-
       Parameters used in Raspa for GenericMOFs and GenericZeolites.
@@ -666,9 +720,10 @@ CH4:
     atom_types:
       C_sp3:
         force_field: [lennard-jones, 158.0, 3.73]
-        pseudo_atom: [yes, C, C, 0, 16.04, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 16.04, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [CH4_sp3, 0, 0, 0]
+      - [CH4_sp3, 0, 0, 0]
 
 C2H4:
   critical_constants:
@@ -682,10 +737,11 @@ C2H4:
     atom_types:
       CH2_ethene:
         force_field: [lennard-jones, 85.0, 3.675]
-        pseudo_atom: [yes, C, C, 0, 14.02, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 14.02, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [CH2_ethene, 0, 0, +0.665]
-    - [CH2_ethene, 0, 0, -0.665]
+      - [CH2_ethene, 0, 0, +0.665]
+      - [CH2_ethene, 0, 0, -0.665]
 
 C2H6:
   critical_constants:
@@ -699,10 +755,11 @@ C2H6:
     atom_types:
       CH2_ethane:
         force_field: [lennard-jones, 98.0, 3.75]
-        pseudo_atom: [yes, C, C, 0, 13.03, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 13.03, 0.0, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [CH2_ethane, 0, 0, +0.77]
-    - [CH2_ethane, 0, 0, -0.77]
+      - [CH2_ethane, 0, 0, +0.77]
+      - [CH2_ethane, 0, 0, -0.77]
 
 CO2:
   critical_constants:
@@ -714,27 +771,31 @@ CO2:
     atom_types:
       O_co2:
         force_field: [lennard-jones, 79.0, 3.05]
-        pseudo_atom: [yes, O, O, 0, 15.9994, -0.35, 0.0, 1.0, 0.68, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.9994, -0.35, 0.0, 1.0, 0.68, 0, 0, relative, 0]
       C_co2:
         force_field: [lennard-jones, 27.0, 2.80]
-        pseudo_atom: [yes, C, C, 0, 12.0, 0.70, 0.0, 1.0, 0.720, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 12.0, 0.70, 0.0, 1.0, 0.720, 0, 0, relative, 0]
     atomic_positions:
-    - [O_co2, 0, 0, 1.16]
-    - [C_co2, 0, 0, 0]
-    - [O_co2, 0, 0, -1.16]
+      - [O_co2, 0, 0, 1.16]
+      - [C_co2, 0, 0, 0]
+      - [O_co2, 0, 0, -1.16]
   ESP-MM:
     description: DFT optimized geometry and parameters fitted to reproduce both VLE and DFT-ESP, improving binding geometries but not necessarily the binding energies too. Done by the group of Li-Chiang Lin in 2019 (10.1021/acs.jctc.9b00653). As for CO2, ESP-MM is very similar to TraPPE.
     atom_types:
       O_co2:
         force_field: [lennard-jones, 56.4, 2.91]
-        pseudo_atom: [yes, O, O, 0, 15.9994, -0.3253, 0.0, 1.0, 0.68, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.9994, -0.3253, 0.0, 1.0, 0.68, 0, 0, relative, 0]
       C_co2:
         force_field: [lennard-jones, 56.0, 3.33]
-        pseudo_atom: [yes, C, C, 0, 12.0, 0.6506, 0.0, 1.0, 0.720, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 12.0, 0.6506, 0.0, 1.0, 0.720, 0, 0, relative, 0]
     atomic_positions:
-    - [O_co2, 0, 0, 1.165]
-    - [C_co2, 0, 0, 0]
-    - [O_co2, 0, 0, -1.165]
+      - [O_co2, 0, 0, 1.165]
+      - [C_co2, 0, 0, 0]
+      - [O_co2, 0, 0, -1.165]
 
 CO:
   critical_constants:
@@ -748,17 +809,19 @@ CO:
     atom_types:
       C_co:
         force_field: [lennard-jones, 98.014, 2.979]
-        pseudo_atom: [yes, C, C, 0, 12.0, -0.2424, 0.0, 1.0, 0.720, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 12.0, -0.2424, 0.0, 1.0, 0.720, 0, 0, relative, 0]
       O_co:
         force_field: [lennard-jones, 16.141, 3.636]
-        pseudo_atom: [yes, O, O, 0, 15.9994, -0.2744, 0.0, 1.0, 0.68, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.9994, -0.2744, 0.0, 1.0, 0.68, 0, 0, relative, 0]
       M_co:
         force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, 0.5168, 0.0, 1.0, 0.68, 0, 0, relative, 0]
     atomic_positions:
-    - [C_co, 0, 0, 0]
-    - [M_co, 0, 0, 0.6443]
-    - [O_co, 0, 0, 1.128]
+      - [C_co, 0, 0, 0]
+      - [M_co, 0, 0, 0.6443]
+      - [O_co, 0, 0, 1.128]
   ESP-MM:
     description: >-
       DFT optimized geometry and parameters fitted to reproduce both VLE and DFT-ESP, improving binding geometries
@@ -768,17 +831,19 @@ CO:
     atom_types:
       C_co:
         force_field: [lennard-jones, 40.5, 3.08]
-        pseudo_atom: [yes, C, C, 0, 12.0, 1.040, 0.0, 1.0, 0.720, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 12.0, 1.040, 0.0, 1.0, 0.720, 0, 0, relative, 0]
       O_co:
         force_field: [lennard-jones, 40.2, 3.52]
-        pseudo_atom: [yes, O, O, 0, 15.9994, -0.209, 0.0, 1.0, 0.68, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.9994, -0.209, 0.0, 1.0, 0.68, 0, 0, relative, 0]
       M_co:
         force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, -0.831, 0.0, 1.0, 0.68, 0, 0, relative, 0]
     atomic_positions:
-    - [C_co, 0, 0, 0]
-    - [M_co, 0, 0, -0.336]
-    - [O_co, 0, 0, 1.129]
+      - [C_co, 0, 0, 0]
+      - [M_co, 0, 0, -0.336]
+      - [O_co, 0, 0, 1.129]
 
 N2:
   critical_constants:
@@ -790,27 +855,30 @@ N2:
     atom_types:
       N_n2:
         force_field: [lennard-jones, 36.0, 3.31]
-        pseudo_atom: [yes, N, N, 0, 14.00674, -0.482, 0.0, 1.0, 0.7, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, N, N, 0, 14.00674, -0.482, 0.0, 1.0, 0.7, 0, 0, relative, 0]
       M_n2:
         force_field: [none]
         pseudo_atom: [no, M, M, 0, 0.0, 0.964, 0.0, 1.0, 0.7, 0, 0, relative, 0]
     atomic_positions:
-    - [N_n2, 0, 0, 0.55]
-    - [M_n2, 0, 0, 0]
-    - [N_n2, 0, 0, -0.55]
+      - [N_n2, 0, 0, 0.55]
+      - [M_n2, 0, 0, 0]
+      - [N_n2, 0, 0, -0.55]
   ESP-MM:
     description: DFT optimized geometry and parameters fitted to reproduce both VLE and DFT-ESP, improving binding geometries but not necessarily the binding energies too. Done by the group of Li-Chiang Lin in 2019 (10.1021/acs.jctc.9b00653). As for N2, ESP-MM is very similar to TraPPE.
     atom_types:
       N_n2:
         force_field: [lennard-jones, 38.0, 3.31]
-        pseudo_atom: [yes, N, N, 0, 14.00674, -0.5186, 0.0, 1.0, 0.7, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, N, N, 0, 14.00674, -0.5186, 0.0, 1.0, 0.7, 0, 0, relative, 0]
       M_n2:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0.0, 1.0372, 0.0, 1.0, 0.7, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0.0, 1.0372, 0.0, 1.0, 0.7, 0, 0, relative, 0]
     atomic_positions:
-    - [N_n2, 0, 0, 0.548]
-    - [M_n2, 0, 0, 0]
-    - [N_n2, 0, 0, -0.548]
+      - [N_n2, 0, 0, 0.548]
+      - [M_n2, 0, 0, 0]
+      - [N_n2, 0, 0, -0.548]
 
 N2O:
   critical_constants:
@@ -822,17 +890,20 @@ N2O:
     atom_types:
       N1_n2o:
         force_field: [lennard-jones, 57.6, 3.13]
-        pseudo_atom: [yes, N, N, 0, 14.00674, -0.3149, 0.0, 1.0, 0.7, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, N, N, 0, 14.00674, -0.3149, 0.0, 1.0, 0.7, 0, 0, relative, 0]
       N2_n2o:
         force_field: [lennard-jones, 57.6, 3.13]
-        pseudo_atom: [yes, N, N, 0, 14.00674, 0.5923, 0.0, 1.0, 0.7, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, N, N, 0, 14.00674, 0.5923, 0.0, 1.0, 0.7, 0, 0, relative, 0]
       O_n2o:
         force_field: [lennard-jones, 71.3, 2.91]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.2774, 0.0, 1.0, 0.7, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.2774, 0.0, 1.0, 0.7, 0, 0, relative, 0]
     atomic_positions:
-    - [N1_n2o, 0, 0, -1.132]
-    - [N2_n2o, 0, 0, 0]
-    - [O_n2o, 0, 0, +1.184]
+      - [N1_n2o, 0, 0, -1.132]
+      - [N2_n2o, 0, 0, 0]
+      - [O_n2o, 0, 0, +1.184]
 
 O2:
   critical_constants:
@@ -844,14 +915,15 @@ O2:
     atom_types:
       O_o2:
         force_field: [lennard-jones, 49.0, 3.02]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.113, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.113, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       M_o2:
         force_field: [none]
         pseudo_atom: [no, M, M, 0, 0.0, 0.226, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [O_o2, 0, 0, 0.605]
-    - [M_o2, 0, 0, 0]
-    - [O_o2, 0, 0, -0.605]
+      - [O_o2, 0, 0, 0.605]
+      - [M_o2, 0, 0, 0]
+      - [O_o2, 0, 0, -0.605]
 
 SO2:
   critical_constants:
@@ -863,18 +935,21 @@ SO2:
     atom_types:
       S_so2:
         force_field: [lennard-jones, 162.7, 3.55]
-        pseudo_atom: [yes, S, S, 0, 32.066, 1.077, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, S, S, 0, 32.066, 1.077, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       O_so2:
         force_field: [lennard-jones, 45.3, 3.00]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.378, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.378, 0.0, 1.0, 1.00, 0, 0, relative, 0]
       M_so2:
         force_field: [none]
-        pseudo_atom: [no, M, M, 0, 0., -0.321, 0.0, 1.0, 1.00, 0, 0, relative, 0]
+        pseudo_atom:
+          [no, M, M, 0, 0., -0.321, 0.0, 1.0, 1.00, 0, 0, relative, 0]
     atomic_positions:
-    - [S_so2, 0, 0, 0]
-    - [O_so2, 0, +1.250, 0.731]     # x=0, y=1.448*sin(119.34/2), z=1.448*cos(119.34/2)
-    - [O_so2, 0, -1.250, 0.731]
-    - [M_so2, 0, 0, -0.689]
+      - [S_so2, 0, 0, 0]
+      - [O_so2, 0, +1.250, 0.731] # x=0, y=1.448*sin(119.34/2), z=1.448*cos(119.34/2)
+      - [O_so2, 0, -1.250, 0.731]
+      - [M_so2, 0, 0, -0.689]
 
 MeOH:
   critical_constants:
@@ -886,13 +961,16 @@ MeOH:
     atom_types:
       CH3_alc:
         force_field: [lennard-jones, 98, 3.75]
-        pseudo_atom: [yes, C, C, 0, 15.000, 0.265, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 15.000, 0.265, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       O_alc:
         force_field: [lennard-jones, 93, 3.02]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.7, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.7, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       H_alc:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.008, 0.435, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.008, 0.435, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions: flexible
 
 EtOH:
@@ -905,16 +983,20 @@ EtOH:
     atom_types:
       CH3_alc2:
         force_field: [lennard-jones, 98, 3.75]
-        pseudo_atom: [yes, C, C, 0, 15.000, 0.000, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 15.000, 0.000, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       CH2_alc:
         force_field: [lennard-jones, 46, 3.95]
-        pseudo_atom: [yes, C, C, 0, 15.000, 0.265, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, C, C, 0, 15.000, 0.265, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       O_alc:
         force_field: [lennard-jones, 93, 3.02]
-        pseudo_atom: [yes, O, O, 0, 15.999, -0.7, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, O, O, 0, 15.999, -0.7, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       H_alc:
         force_field: [none]
-        pseudo_atom: [yes, H, H, 0, 1.008, 0.435, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, H, H, 0, 1.008, 0.435, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions: flexible
 
 # Noble gasses (in order of atomic number)
@@ -930,9 +1012,10 @@ He:
     atom_types:
       He_gas:
         force_field: [lennard-jones, 10.9, 2.640]
-        pseudo_atom: [yes, He, He, 0, 4.00, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, He, He, 0, 4.00, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [He_gas 0, 0, 0]
+      - [He_gas 0, 0, 0]
 
 Ne:
   critical_constants:
@@ -944,9 +1027,10 @@ Ne:
     atom_types:
       Ne_gas:
         force_field: [lennard-jones, 37.1, 2.670]
-        pseudo_atom: [yes, Ne, Ne, 0, 20.18, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, Ne, Ne, 0, 20.18, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [Ne_gas 0, 0, 0]
+      - [Ne_gas 0, 0, 0]
   HIRSCHFELDER:
     description: >-
       Parameters computed by second virial in the book "Molecular Theory of Gases and Liquids"
@@ -954,9 +1038,10 @@ Ne:
     atom_types:
       Ne_gas:
         force_field: [lennard-jones, 34.9, 2.780]
-        pseudo_atom: [yes, Ne, Ne, 0, 20.18, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, Ne, Ne, 0, 20.18, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [Ne_gas 0, 0, 0]
+      - [Ne_gas 0, 0, 0]
 
 Ar:
   critical_constants:
@@ -968,9 +1053,10 @@ Ar:
     atom_types:
       Ar_gas:
         force_field: [lennard-jones, 119.8, 3.400]
-        pseudo_atom: [yes, Ar, Ar, 0, 39.95, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, Ar, Ar, 0, 39.95, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [Ar_gas 0, 0, 0]
+      - [Ar_gas 0, 0, 0]
 
 Kr:
   critical_constants:
@@ -982,9 +1068,10 @@ Kr:
     atom_types:
       Kr_gas:
         force_field: [lennard-jones, 165.2, 3.660]
-        pseudo_atom: [yes, Kr, Kr, 0, 83.80, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, Kr, Kr, 0, 83.80, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [Kr_gas 0, 0, 0]
+      - [Kr_gas 0, 0, 0]
   HIRSCHFELDER:
     description: >-
       Parameters computed by second virial in the book "Molecular Theory of Gases and Liquids"
@@ -992,9 +1079,10 @@ Kr:
     atom_types:
       Kr_gas:
         force_field: [lennard-jones, 171.0, 3.600]
-        pseudo_atom: [yes, Kr, Kr, 0, 83.80, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, Kr, Kr, 0, 83.80, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [Kr_gas 0, 0, 0]
+      - [Kr_gas 0, 0, 0]
 
 Xe:
   critical_constants:
@@ -1006,9 +1094,10 @@ Xe:
     atom_types:
       Xe_gas:
         force_field: [lennard-jones, 229.8, 3.970]
-        pseudo_atom: [yes, Xe, Xe, 0, 131.29, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, Xe, Xe, 0, 131.29, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [Xe_gas 0, 0, 0]
+      - [Xe_gas 0, 0, 0]
   HIRSCHFELDER:
     description: >-
       Parameters computed by second virial in the book "Molecular Theory of Gases and Liquids"
@@ -1017,6 +1106,76 @@ Xe:
     atom_types:
       Xe_gas:
         force_field: [lennard-jones, 221.0, 4.1]
-        pseudo_atom: [yes, Xe, Xe, 0, 131.29, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+        pseudo_atom:
+          [yes, Xe, Xe, 0, 131.29, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
-    - [Xe_gas 0, 0, 0]
+      - [Xe_gas 0, 0, 0]
+
+Benzene:
+  critical_constants:
+    # no 1722 in Yaws, page 33
+    tc: 562.05
+    pc: 4895000
+    af: 0.210
+  Trappe9Site:
+    description: TraPPE 9-site model, described in J. Chromatogr. A 954, 181-190 (2002). See https://www.dropbox.com/s/0g4iqalrxqvidvq/benzene_trappe.ggb?dl=0.
+    atom_types:
+      CH:
+        force_field: [lennard-jones, 48, 3.74]
+        pseudo_atom:
+          [yes, C, C, 0, 13.019, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+      M_center:
+        force_field: [None]
+        pseudo_atom: [no, M, M, 0, 0, 2.42, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+      M_pi:
+        force_field: [None]
+        pseudo_atom: [no, M, M, 0, 0, -1.21, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+    atomic_positions:
+      - [CH  0, 1.4, 0] # point A
+      - [CH 0, 0, 0] # point B
+      - [CH 1.21, -0.7, 0] # point C
+      - [CH 2.42, 0, 0] # point D
+      - [CH 2.42, 1.4, 0] # point E
+      - [CH 1.21, 2.1, 0] # point F
+      - [M_center  1.21, 0.7, 0]
+      - [M_pi  1.21, 0.7, -0.78]
+      - [M_pi 1.21, 0.7, 0.78]
+
+Toluene:
+  critical_constants:
+    # no 2526 in Yaws, page 43
+    tc: 591.75
+    pc: 4108000
+    af: 0.264
+  Trappe10Site:
+    description: TraPPE 10-site model, described in J. Chromatogr. A 954, 181-190 (2002). See https://www.dropbox.com/s/mg8c58yn4lt1hb4/trappe_toluene.ggb?dl=0.
+    atom_types:
+      CH:
+        force_field: [lennard-jones, 48, 3.74]
+        pseudo_atom:
+          [yes, C, C, 0, 13.019, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+      CH3:
+        force_field: [lennard-jones, 98, 3.75]
+        pseudo_atom:
+          [yes, C, C, 0, 15.035, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+      C:
+        force_field: [lennard-jones, 21, 3.88]
+        pseudo_atom:
+          [yes, C, C, 0, 12.011, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+      M_center:
+        force_field: [None]
+        pseudo_atom: [no, M, M, 0, 0, 2.42, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+      M_pi:
+        force_field: [None]
+        pseudo_atom: [no, M, M, 0, 0, -1.21, 0.0, 1.0, 1.0, 0, 0, relative, 0]
+    atomic_positions:
+      - [CH  0, 1.4, 0] # point A
+      - [CH 0, 0, 0] # point B
+      - [CH 1.21, -0.7, 0] # point C
+      - [CH 2.42, 0, 0] # point D
+      - [CH 2.42, 1.4, 0] # point E
+      - [CH 1.21, 2.1, 0] # point F
+      - [CH3 1.21, 3.64, 0] # point H'
+      - [M_center  1.21, 0.7, 0]
+      - [M_pi  1.21, 0.7, -0.78]
+      - [M_pi 1.21, 0.7, 0.78]
