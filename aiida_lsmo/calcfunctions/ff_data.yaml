@@ -1125,10 +1125,10 @@ Benzene:
         pseudo_atom:
           [yes, C, C, 0, 13.019, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       M_center:
-        force_field: [None]
+        force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, 2.42, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       M_pi:
-        force_field: [None]
+        force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, -1.21, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
       - [CH  0, 1.4, 0] # point A
@@ -1163,10 +1163,10 @@ Toluene:
         pseudo_atom:
           [yes, C, C, 0, 12.011, 0.0, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       M_center:
-        force_field: [None]
+        force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, 2.42, 0.0, 1.0, 1.0, 0, 0, relative, 0]
       M_pi:
-        force_field: [None]
+        force_field: [none]
         pseudo_atom: [no, M, M, 0, 0, -1.21, 0.0, 1.0, 1.0, 0, 0, relative, 0]
     atomic_positions:
       - [CH  0, 1.4, 0] # point A
